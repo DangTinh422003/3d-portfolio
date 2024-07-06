@@ -3,11 +3,10 @@ import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import MagicButton from "./ui/MagicButton";
 import { FaLocationArrow } from "react-icons/fa";
-import { SparklesCore } from "./ui/Sparkles";
 
 const Hero = () => {
   return (
-    <div className="pb-20 pt-36">
+    <div className="md:pb-20 md:pt-36">
       <div>
         <Spotlight
           className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen"
@@ -43,7 +42,7 @@ const Hero = () => {
           </div>
 
           <p className="text-center md:tracking-wide my-4 text-sm md:text-lg lg:text-2xl">
-            Hi, I'm Dang Tinh, a Next.js Developer
+            Hi, I&apos;m Dang Tinh, a Next.js Developer
           </p>
 
           <MagicButton

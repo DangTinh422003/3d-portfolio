@@ -1,9 +1,13 @@
+"use client";
 import { cn } from "@/utils/cn";
 import Image from "next/image";
 import { BackgroundGradientAnimation } from "./BackgroundGradientAnimation";
 import { GlobeDemo } from "./GlobeDemo";
-import clsx from "clsx";
+import animationData from "@/data/confetti.json";
+
 import MagicButton from "./MagicButton";
+import { IoCopy } from "react-icons/io5";
+import { useEffect, useState } from "react";
 
 export const BentoGrid = ({
   className,
@@ -47,6 +51,8 @@ export const BentoGridItem = ({
   img?: string;
   spareImg?: string;
 }) => {
+  const [isCopied, setIsCopied] = useState(false);
+
   return (
     <div
       className={cn(
@@ -59,7 +65,7 @@ export const BentoGridItem = ({
           "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
       }}
     >
-      <div className={`${id === 6 && "flex justify-center"} h-full`}>
+      <div className={`flex justify-center h-full`}>
         <div className="w-full h-full">
           {img && (
             <div className="w-full h-full absolute top-0 left-0">
@@ -76,9 +82,11 @@ export const BentoGridItem = ({
           )}
 
           <div
-            className={`${
-              id === 4 && "opacity-80 absolute w-1/2 h-1/2 right-0 bottom-0"
-            } `}
+            className={`opacity-80 absolute ${
+              id === 4
+                ? "right-0 bottom-0 w-1/2 h-1/2"
+                : "top-0 left-0 w-full h-full"
+            }`}
           >
             {spareImg && (
               <div className="w-full h-full">
@@ -104,21 +112,34 @@ export const BentoGridItem = ({
           <div
             className={cn(
               titleClassName,
-              "group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:px-10"
+              "group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:px-6"
             )}
           >
-            <div className="font-sans font-extralight md:max-w-32 md:text-xs lg:text-base text-sm text-[#C1C2D3] z-10">
+            <div className="font-sans font-extralight md:text-xs lg:text-base text-sm text-[#C1C2D3] z-10">
               {description}
             </div>
 
             <div
-              className={`relative font-sans text-lg lg:text-3xl w-full font-bold z-50`}
+              className={`max-w-96 relative font-sans text-lg lg:text-3xl w-full font-bold z-50`}
             >
               {title}
             </div>
             {id === 6 && (
               <div className="w-full flex justify-center my-2">
-                <MagicButton type="border-magic">Show my work</MagicButton>
+                <MagicButton
+                  type="border-magic"
+                  className="z-50 flex gap-x-3 items-center justify-center"
+                >
+                  {!isCopied ? "Copy My Email Address!" : "Email Copied!"}
+                  <IoCopy
+                    onClick={() => {
+                      navigator.clipboard.writeText(
+                        "caodangtinh04022003@gmail.com"
+                      );
+                      setIsCopied(true);
+                    }}
+                  />
+                </MagicButton>
               </div>
             )}
           </div>
@@ -127,6 +148,33 @@ export const BentoGridItem = ({
         {id === 2 && (
           <div className="z-10 absolute top-0 left-0 w-full h-full">
             <GlobeDemo />
+          </div>
+        )}
+
+        {id === 3 && (
+          <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2 top-0">
+            <div className="flex flex-col gap-3 lg:gap-8">
+              {["Typescript", "Express", "Java"].map((item) => (
+                <span
+                  key={item}
+                  className="py-2 lg:py-4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132e]"
+                >
+                  {item}
+                </span>
+              ))}
+              <span className="py-4 px-3 rounded-lg text-center bg-[#10132e]" />
+            </div>
+            <div className="flex flex-col gap-3 lg:gap-8">
+              <span className="py-4 px-3 rounded-lg text-center bg-[#10132e]" />
+              {["Next.js", "Scss", "Javascript"].map((item) => (
+                <span
+                  key={item}
+                  className="py-2 lg:py-4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132e]"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
         )}
       </div>

@@ -76,6 +76,10 @@
   button {
     @apply active:outline-none;
   }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @layer utilities {

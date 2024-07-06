@@ -10,7 +10,14 @@ export default function Home() {
       <div className="max-w-7xl w-full">
         <TracingBeam>
           <FloatingNavbar
-            navItems={[{ name: "Home", link: "/", icon: <FaHome /> }]}
+            navItems={[
+              { name: "Home", link: "", icon: <FaHome /> },
+              { name: "About", link: "", icon: <FaHome /> },
+              { name: "Projects", link: "", icon: <FaHome /> },
+              { name: "Certificates", link: "", icon: <FaHome /> },
+              { name: "Experiences", link: "", icon: <FaHome /> },
+              { name: "Contact", link: "", icon: <FaHome /> },
+            ]}
           />
           <Hero />
           <Grid />
