@@ -3,6 +3,7 @@ import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import MagicButton from "./ui/MagicButton";
 import { FaLocationArrow } from "react-icons/fa";
+import { SparklesCore } from "./ui/Sparkles";
 
 const Hero = () => {
   return (
@@ -21,7 +22,7 @@ const Hero = () => {
 
       <div className="h-[50rem] w-full dark:bg-black-100 bg-white dark:bg-grid-white/[0.02] bg-grid-black/[0.02] flex items-center justify-center absolute top-0 left-0">
         {/* Radial gradient for the container to give a faded look */}
-        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
       </div>
 
       <div className="flex justify-center relative my-20 z-10">
@@ -34,12 +35,22 @@ const Hero = () => {
             className="text-center text-[40px] md:text-5xl lg:text-6xl leading-[1.2]"
             words="Transforming Concepts into Seamless User Experiences"
           />
+          <div className="w-3/4 h-1 relative">
+            <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
+            <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
+            <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
+            <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
+          </div>
 
-          <p className="text-center md:tracking-wide mb-4 text-sm md:text-lg lg:text-2xl">
-            Hi, I'm Dang Tinh, a Next.js Developer based in VietNam
+          <p className="text-center md:tracking-wide my-4 text-sm md:text-lg lg:text-2xl">
+            Hi, I'm Dang Tinh, a Next.js Developer
           </p>
 
-          <MagicButton className="mt-10" icon={<FaLocationArrow />}>
+          <MagicButton
+            type="shimmer"
+            className="mt-10"
+            icon={<FaLocationArrow />}
+          >
             Show my work
           </MagicButton>
         </div>
