@@ -8,6 +8,8 @@ import animationData from "@/data/confetti.json";
 import MagicButton from "./MagicButton";
 import { IoCopy } from "react-icons/io5";
 import { useEffect, useState } from "react";
+import clsx from "clsx";
+import { TextGenerateEffect } from "./TextGenerateEffect";
 
 export const BentoGrid = ({
   className,
@@ -65,7 +67,7 @@ export const BentoGridItem = ({
           "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
       }}
     >
-      <div className={`flex justify-center h-full`}>
+      <div className={clsx("flex justify-center items-center h-full")}>
         <div className="w-full h-full">
           {img && (
             <div className="w-full h-full absolute top-0 left-0">
@@ -111,18 +113,20 @@ export const BentoGridItem = ({
 
           <div
             className={cn(
-              titleClassName,
-              "group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:px-6"
+              "transition duration-200 relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:px-6 w-full"
             )}
           >
-            <div className="font-sans font-extralight md:text-xs lg:text-base text-sm text-[#C1C2D3] z-10">
+            <p className="font-sans font-extralighttext-[#C1C2D3] z-50">
               {description}
-            </div>
+            </p>
 
             <div
-              className={`max-w-96 relative font-sans text-lg lg:text-3xl w-full font-bold z-50`}
+              className={clsx(
+                "relative font-sans w-full font-bold z-50",
+                titleClassName
+              )}
             >
-              {title}
+              <TextGenerateEffect words={title?.toString()!} />
             </div>
             {id === 6 && (
               <div className="w-full flex justify-center my-2">
@@ -145,38 +149,40 @@ export const BentoGridItem = ({
           </div>
         </div>
 
-        {id === 2 && (
-          <div className="z-10 absolute top-0 left-0 w-full h-full">
-            <GlobeDemo />
-          </div>
-        )}
+        <div
+          className={clsx(
+            id === 2 && "absolute top-16 left-1/2 -translate-x-1/2 z-30"
+          )}
+        >
+          {id === 2 && <GlobeDemo />}
 
-        {id === 3 && (
-          <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2 top-0">
-            <div className="flex flex-col gap-3 lg:gap-8">
-              {["Typescript", "Express", "Java"].map((item) => (
-                <span
-                  key={item}
-                  className="py-2 lg:py-4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132e]"
-                >
-                  {item}
-                </span>
-              ))}
-              <span className="py-4 px-3 rounded-lg text-center bg-[#10132e]" />
+          {id === 3 && (
+            <div className="flex gap-4 lg:gap-5 w-fit absolute -right-3 lg:-right-2 top-0">
+              <div className="translate-y-6 lg:translate-y-0 flex flex-col gap-4 lg:gap-8">
+                {["Typescript", "Express", "Java"].map((item) => (
+                  <span
+                    key={item}
+                    className="py-2 lg:py-4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132e]"
+                  >
+                    {item}
+                  </span>
+                ))}
+                <span className="py-4 px-3 rounded-lg text-center bg-[#10132e]" />
+              </div>
+              <div className="flex flex-col gap-4 lg:gap-8">
+                <span className="py-4 px-3 rounded-lg text-center bg-[#10132e]" />
+                {["Next.js", "Scss", "Javascript"].map((item) => (
+                  <span
+                    key={item}
+                    className="py-2 lg:py-4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132e]"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
-            <div className="flex flex-col gap-3 lg:gap-8">
-              <span className="py-4 px-3 rounded-lg text-center bg-[#10132e]" />
-              {["Next.js", "Scss", "Javascript"].map((item) => (
-                <span
-                  key={item}
-                  className="py-2 lg:py-4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132e]"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );
