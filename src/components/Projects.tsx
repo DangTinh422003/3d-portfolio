@@ -32,7 +32,7 @@ const ProjectItem = (p: (typeof PROJECTS)[number]) => {
     <BackgroundGradient>
       <CardContainer className="border border-solid rounded-xl p-8 h-full bg-black-100">
         <CardBody className="w-full h-full">
-          <CardItem translateZ="70" className="w-full h-full">
+          <CardItem translateZ="80" className="w-full h-full">
             <div className="bg-[#13162D] relative w-full h-64 rounded-xl overflow-hidden">
               <Image
                 src={p.img}
@@ -44,7 +44,7 @@ const ProjectItem = (p: (typeof PROJECTS)[number]) => {
             </div>
           </CardItem>
           <CardItem
-            translateZ="60"
+            translateZ="70"
             className="text-4xl font-bold gap-4 mt-10 mb-4 flex items-center"
           >
             <span className="capitalize">{p.title}</span>
@@ -53,14 +53,14 @@ const ProjectItem = (p: (typeof PROJECTS)[number]) => {
             </a>
           </CardItem>
           <CardItem
-            translateZ="50"
+            translateZ="60"
             className="text-xl leading-[1.6] text-white-100 line-clamp-3 min-h-28"
           >
             {p.desc}
           </CardItem>
 
           <CardItem
-            translateZ="40"
+            translateZ="50"
             className="w-full flex justify-between items-center"
           >
             <div className="flex max-w-1/2">
@@ -73,7 +73,7 @@ const ProjectItem = (p: (typeof PROJECTS)[number]) => {
                       translate: `-${idx * 12}px`,
                     }}
                   >
-                    <div className="relative w-8 h-8">
+                    <div className="relative w-8 h-8 rounded-full overflow-hidden">
                       <Image src={t} alt="" fill className="w-full h-full" />
                     </div>
                   </div>
