@@ -7,6 +7,41 @@ export const navItems = [
   { name: "Contact", link: "#contact" },
 ];
 
+export const EXPERIENCES = [
+  {
+    id: v4(),
+    img: "/exp1.svg",
+    title: "Technical Mentor",
+    company: "Icon IT Club",
+    description:
+      "Building and developing an IT student community at Ton Duc Thang University",
+  },
+  {
+    id: v4(),
+    img: "/exp2.svg",
+    title: "Web Technical Member",
+    company: "Code MeLy",
+    description:
+      "Developing web applications and building the IT student community in Vietnam",
+  },
+  {
+    id: v4(),
+    img: "/exp3.svg",
+    title: "Internship Fullstack Developer",
+    company: "Alta Software",
+    description:
+      "Learning experiences and development processes for building applications and websites according to customer requirements.",
+  },
+  {
+    id: v4(),
+    img: "/exp4.svg",
+    title: "Web Developer",
+    company: "The Binary Holdings",
+    description:
+      "Developing web3 applications and blockchain-related applications.",
+  },
+];
+
 export const gridItems = [
   {
     id: 1,
